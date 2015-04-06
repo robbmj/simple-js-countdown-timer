@@ -16,8 +16,7 @@ CountDownTimer.prototype.start = function() {
 
   (function timer() {
     diff = that.duration - (((Date.now() - start) / 1000) | 0);
-    obj = CountDownTimer.parse(diff);
-
+    
     if (diff > 0) {
       setTimeout(timer, that.granularity);
     } else {
@@ -25,6 +24,7 @@ CountDownTimer.prototype.start = function() {
       that.running = false;
     }
 
+    obj = CountDownTimer.parse(diff);
     that.tickFtns.forEach(function(ftn) {
       ftn.call(this, obj.minutes, obj.seconds);
     }, that);
