@@ -21,6 +21,7 @@ CountDownTimer.prototype.start = function() {
     if (diff > 0) {
       setTimeout(timer, that.granularity);
     } else {
+      diff = 0;
       that.running = false;
     }
 
